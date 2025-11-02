@@ -1,0 +1,80 @@
+baseURL = "https://delphi.dev.br/"
+languageCode = "pt-br"
+title = "delphi.dev.br"
+theme = "PaperMod"
+
+[pagination]
+  pagerSize = 7
+enableRobotsTXT = true
+canonifyURLs = true
+
+[taxonomies]
+  category = "categories"
+  tag      = "tags"
+  series   = "series"
+
+[params]
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowCodeCopyButtons = true
+  ShowShareButtons = true
+  ShowBreadCrumbs = true
+
+  # Subtítulo e persona
+ [params.profileMode]
+  enabled = true
+  title = "delphi.dev.br"
+  subtitle = "**Bruto do Delphi**: rústico, sem firula, especialista em Delphi há 20+ anos."
+  imageUrl = "images/bruto-avatar.png"
+  imageTitle = "Bruto do Delphi"
+  imageWidth = 180
+  imageHeight = 180
+
+  # “Modo família”: se true, censura palavrões em shortcodes
+  familyMode = false
+
+  # Ícones sociais no topo/rodapé
+  [[params.socialIcons]]
+    name = "github"
+    url  = "https://github.com/alanvcb"
+  [[params.socialIcons]]
+    name = "youtube"
+    url  = "https://youtube.com/brutododelphi"
+  [[params.socialIcons]]
+    name = "linkedin"
+    url  = "https://www.linkedin.com/in/alanvcb"
+  [[params.socialIcons]]
+    name = "rss"
+    url  = "/index.xml"
+
+# 🧭 Menu principal
+[menu]
+  [[menu.main]]
+    name = "Início"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    name = "Sobre"
+    url = "/about/"
+    weight = 3
+  [[menu.main]]
+    name = "Contato"
+    url = "/contact/"
+    weight = 4
+
+# 💡 Syntax highlight bonito e com números de linha
+[markup]
+  [markup.highlight]
+    noClasses = false      # PaperMod injeta o CSS quando isso é false
+    lineNos = true
+    lineNumbersInTable = true
+
+[params.bruto]
+  familyMode = false
+
+[params.assets]
+  css = ["css/bruto.css"]

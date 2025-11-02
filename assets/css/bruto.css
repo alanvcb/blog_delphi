@@ -1,0 +1,36 @@
+/* Cartão introdutório */
+.bruto-intro {
+  border-left: 6px solid #a35a00;
+  padding: .9rem 1rem;
+  margin: 1rem 0;
+  background: #ffedd5;          /* laranja claro */
+  border-radius: .6rem;
+  font-size: 0.98rem;
+}
+
+/* Coice do Bruto – vermelho mesmo */
+.bruto-bronca {
+  border-left: 6px solid #c81e1e;
+  padding: .95rem 1rem;
+  margin: 1rem 0;
+  background: #fee2e2;          /* vermelho claro */
+  border-radius: .6rem;
+  font-weight: 500;
+}
+.bruto-bronca strong {
+  color: #991b1b;               /* título em vermelho mais escuro */
+  margin-right: .35rem;
+}
+
+/* Dark mode (PaperMod aplica .dark no html/body) */
+.dark .bruto-intro {
+  background: rgba(163, 90, 0, .15);
+  border-left-color: #fbbf24;   /* âmbar */
+}
+.dark .bruto-bronca {
+  background: rgba(200, 30, 30, .18);
+  border-left-color: #f87171;
+}
+.dark .bruto-bronca strong {
+  color: #fca5a5;
+}

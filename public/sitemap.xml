@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://delphi.dev.br/</loc>
+    <lastmod>2025-10-31T22:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delphi.dev.br/categories/bruto/</loc>
+    <lastmod>2025-10-31T22:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delphi.dev.br/categories/</loc>
+    <lastmod>2025-10-31T22:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delphi.dev.br/tags/clean-code/</loc>
+    <lastmod>2025-10-31T22:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delphi.dev.br/tags/delphi/</loc>
+    <lastmod>2025-10-31T22:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delphi.dev.br/posts/pare-de-usar-with-no-delphi/</loc>
+    <lastmod>2025-10-31T22:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delphi.dev.br/posts/</loc>
+    <lastmod>2025-10-31T22:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delphi.dev.br/tags/</loc>
+    <lastmod>2025-10-31T22:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://delphi.dev.br/contact/</loc>
+  </url><url>
+    <loc>https://delphi.dev.br/bruto/</loc>
+  </url><url>
+    <loc>https://delphi.dev.br/series/</loc>
+  </url><url>
+    <loc>https://delphi.dev.br/about/</loc>
+  </url>
+</urlset>

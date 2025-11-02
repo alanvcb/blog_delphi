@@ -1,0 +1,12 @@
+{{/* Shortcode principal: {{< bruto intro="texto" >}} */}}
+
+{{ $t := .Get "intro" | default "..." }}
+{{ $family := or (index site.Params "bruto" "familyMode") site.Params.familyMode }}
+
+{{ if $family }}
+  {{ $t = replaceRE `(?i)\b(porra|caralho|merda|puta|bosta)\b` "p***" $t }}
+{{ end }}
+
+<div class="bruto-intro">
+  <span>{{ $t | markdownify }}</span>
+</div>

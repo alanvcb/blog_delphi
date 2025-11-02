@@ -1,0 +1,2 @@
+{{- $bruto := resources.Get "css/bruto.css" | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $bruto.RelPermalink }}" integrity="{{ $bruto.Data.Integrity }}">

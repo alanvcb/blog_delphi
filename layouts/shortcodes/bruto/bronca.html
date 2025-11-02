@@ -1,0 +1,12 @@
+{{/* Uso: {{< bruto/bronca >}}texto{{< /bruto/bronca >}} */}}
+
+{{ $family := or site.Params.bruto.familyMode site.Params.familyMode }}
+{{ $text := .Inner }}
+
+{{ if $family }}
+  {{ $text = replaceRE `(?i)\b(porra|caralho|merda|puta|bosta)\b` "p***" $text }}
+{{ end }}
+
+<div class="bruto-bronca">
+  <strong>Coice do Bruto:</strong> {{ $text | markdownify }}
+</div>
