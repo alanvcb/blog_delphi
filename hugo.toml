@@ -19,12 +19,14 @@ canonifyURLs = true
   ShowCodeCopyButtons = true
   ShowShareButtons = true
   ShowBreadCrumbs = true
+  images = ["images/cover-default.jpg"]  
 
   # Subtítulo e persona
  [params.profileMode]
   enabled = true
   title = "delphi.dev.br"
-  subtitle = "**Bruto do Delphi**: rústico, sem firula, especialista em Delphi há 20+ anos."
+  subtitle = """<strong>Bruto do Delphi</strong> — rústico, sem firula, 20+ anos de Delphi.
+    <div class='bruto-saudacao-home'><strong>🤠 Tarde Brutaiada</strong></div>"""
   imageUrl = "images/bruto-avatar.png"
   imageTitle = "Bruto do Delphi"
   imageWidth = 180
@@ -72,9 +74,13 @@ canonifyURLs = true
     noClasses = false      # PaperMod injeta o CSS quando isso é false
     lineNos = true
     lineNumbersInTable = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [params.bruto]
   familyMode = false
 
 [params.assets]
   css = ["css/bruto.css"]
+ 

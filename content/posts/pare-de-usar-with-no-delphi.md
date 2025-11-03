@@ -10,8 +10,6 @@ cover:
 summary: "Um manifesto do Bruto do Delphi: por que o `with` é o capeta disfarçado de atalho."
 ---
 
-**Tarde Brutaiada!!**
-
 {{< bruto intro="**WITH é coisa de programador preguiçoso**" >}}
 
 {{< bruto/bronca >}}

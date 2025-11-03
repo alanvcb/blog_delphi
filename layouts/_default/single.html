@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <article class="post">
+    <header class="post-header">
+      <h1>{{ .Title }}</h1>
+      {{ if .Params.subtitle }}<h2>{{ .Params.subtitle }}</h2>{{ end }}
+    </header>
+
+  {{ partial "bruto-saudacao.html" . }}
+
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}
