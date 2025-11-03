@@ -7,9 +7,10 @@ categories: ["bruto"]
 author: "Bruto do Delphi"
 cover:
   image: "/images/cover-default.jpg"
-  alt: "Código Delphi limpo, sem with"
 summary: "Um manifesto do Bruto do Delphi: por que o `with` é o capeta disfarçado de atalho."
 ---
+
+**Tarde Brutaiada!!**
 
 {{< bruto intro="**WITH é coisa de programador preguiçoso**" >}}
 
