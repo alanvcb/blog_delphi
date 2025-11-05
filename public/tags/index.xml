@@ -11,20 +11,34 @@
     </image>
     <generator>Hugo -- 0.152.0</generator>
     <language>pt-br</language>
-    <lastBuildDate>Fri, 31 Oct 2025 22:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Clean-Code</title>
-      <link>http://localhost:1313/tags/clean-code/</link>
-      <pubDate>Fri, 31 Oct 2025 22:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/clean-code/</guid>
+      <title>Bruto Do Delphi</title>
+      <link>http://localhost:1313/tags/bruto-do-delphi/</link>
+      <pubDate>Mon, 03 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/bruto-do-delphi/</guid>
       <description></description>
     </item>
     <item>
       <title>Delphi</title>
       <link>http://localhost:1313/tags/delphi/</link>
-      <pubDate>Fri, 31 Oct 2025 22:00:00 +0000</pubDate>
+      <pubDate>Mon, 03 Nov 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/delphi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Variáveis Inline</title>
+      <link>http://localhost:1313/tags/vari%C3%A1veis-inline/</link>
+      <pubDate>Mon, 03 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/vari%C3%A1veis-inline/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Clean-Code</title>
+      <link>http://localhost:1313/tags/clean-code/</link>
+      <pubDate>Fri, 31 Oct 2025 22:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/clean-code/</guid>
       <description></description>
     </item>
   </channel>

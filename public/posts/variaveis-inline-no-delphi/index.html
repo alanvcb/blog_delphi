@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Variáveis inline – paraíso ou zona? | delphi.dev.br</title>
+<meta name="keywords" content="Delphi, Bruto do Delphi, variáveis inline">
+<meta name="description" content="O Bruto do Delphi explica o que são as variáveis inline — e por que podem transformar seu código num inferno.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/variaveis-inline-no-delphi/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/variaveis-inline-no-delphi/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="stylesheet" href="/css/bruto.min.c31868396e2d623ffe58c59818d9ef98280f2b5465275af35de1a562c8a6b4e9.css" integrity="sha256-wxhoOW4tYj/&#43;WMWYGNnvmCgPK1RlJ1rzXeGlYsimtOk=">
+
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="delphi.dev.br (Alt + H)">delphi.dev.br</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Início">
+                    <span>Início</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="Sobre">
+                    <span>Sobre</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/contact/" title="Contato">
+                    <span>Contato</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+  <article class="post">
+    <header class="post-header">
+      <h1>Variáveis inline – paraíso ou zona?</h1>
+      
+    </header>
+
+  <p class="bruto-saudacao-post"><strong>&#x1F920; Tarde Brutaiada! Sejam bem vindos a mais um post do Bruto do Delphi!</strong></p>
+
+    <div class="post-content">
+      <p>Lá por 2018, no <strong>Delphi 10.3 Rio</strong>, os engenheiros da Embarcadero resolveram “modernizar” o negócio e inventaram as <strong>variáveis inline</strong>.<br>
+A ideia parece genial: declarar a variável ali, no exato ponto onde vai usar.<br>
+No papel é bonito. Na prática, é tipo botar farol de LED num fusca — chama atenção, mas não resolve o problema.</p>
+<p>Neste post, eu te explico o que são essas benditas variáveis inline, quando elas até fazem sentido, e por que, na minha opinião, <strong>qualquer coisa fora de um <code>for</code> é receita de bagunça.</strong></p>
+<hr>
+<h2 id="o-que-é-variável-inline">O que é variável inline</h2>
+<p>Desde os <strong>primórdios do Pascal</strong>, lá da época que a gente ainda usava disquete e o compilador cabia num disquete e meio, toda variável local era declarada no topo do método, <strong>antes do <code>begin</code></strong>.<br>
+Esse era o padrão: bonito, previsível e lógico.</p>
+<p>Aí veio o <strong>Delphi 10.3 Rio</strong> e resolveu permitir isso aqui:</p>
+<pre tabindex="0"><code class="language-pascal" data-lang="pascal">procedure Test;
+begin
+  var i: Integer := 10;
+  ShowMessage(i.ToString);
+end;
+</code></pre><p>Parece prático, né? E é mesmo… até o momento em que o código começa a crescer.<br>
+Aí você vai caçar onde está a variável, e descobre que alguém teve a brilhante ideia de declarar um <code>var</code> no meio de um <code>if</code>, outro dentro de um <code>try</code>, e outro lá no fim do <code>begin</code>.<br>
+Pronto, virou merda.</p>
+<hr>
+<h2 id="os-prós-pra-não-dizer-que-eu-só-reclamo">Os prós (pra não dizer que eu só reclamo)</h2>
+<ul>
+<li>O escopo fica mais curto: terminou o bloco, a variável morre.</li>
+<li>Dá pra declarar no ponto de uso, beleza.</li>
+<li>O compilador infere o tipo, então o código fica menor.</li>
+<li>Evita variáveis zumbis que seguem vivas sem necessidade.</li>
+</ul>
+
+
+
+
+
+
+
+<div class="bruto-intro">
+  <span>Ok, tem sua utilidade. <br> Mas a turma começou a achar que isso é desculpa pra jogar <code>var</code> em qualquer canto do código.</span>
+</div>
+
+<hr>
+<h2 id="os-contras-e-aqui-começa-a-bronca">Os contras (e aqui começa a bronca)</h2>
+
+
+
+
+
+
+
+<div class="bruto-bronca">
+  <strong>Coice do Bruto:</strong> Fora do <code>for</code>, <strong>vira bagunça generalizada</strong>.<br>
+Você abre um método e tem <code>var</code> em cada esquina.<br>
+O padrão do Delphi sempre foi simples: <strong>quer saber as variáveis? sobe lá pro topo, antes do <code>begin</code>.</strong><br>
+Agora tem que sair caçando <code>var</code> no meio do inferno.
+</div>
+
+<ul>
+<li>Às vezes nem tipo tem: <code>var x := AlgumaFuncao();</code> — aí você precisa abrir a função pra saber o que é <code>x</code>.</li>
+<li>Manutenção? Virou caça ao tesouro.</li>
+<li>Código grande com inline é tipo novela ruim: parece que vai melhorar, mas só piora.</li>
+</ul>
+<p><strong>Resumo:</strong> quem quer economizar três teclas acaba gastando meia hora pra entender o que o próprio código faz.</p>
+<hr>
+<h2 id="opinião-do-bruto">Opinião do Bruto</h2>
+<p>Variável inline só faz sentido <strong>em dois lugares</strong>:</p>
+<ol>
+<li>Dentro de um <code>for</code>, tipo <code>for var i := 0 to 10 do</code>.</li>
+<li>Em blocos pequenos, de preferência com menos de meia tela.</li>
+</ol>
+<p>Fora disso, é firula.<br>
+Quer declarar no meio do método? Faz um favor pra humanidade e vai vender pamonha.<br>
+Quem for dar manutenção vai te xingar em três línguas diferentes, e com razão.</p>
+
+
+
+
+
+
+
+<div class="bruto-bronca">
+  <strong>Coice do Bruto:</strong> No meu código, <strong>variável é tudo antes do <code>begin</code></strong>.<br>
+Se você precisar achar uma, vai lá e tá tudo ali, arrumadinho.<br>
+Isso é padrão, é clareza, é paz de espírito.
+</div>
+
+<hr>
+<h2 id="exemplo-bom-aceitável">Exemplo bom (aceitável)</h2>
+<pre tabindex="0"><code class="language-pascal" data-lang="pascal">for var Item in Lista do
+begin
+  var Dobrado := Item * 2;
+  ShowMessage(Dobrado.ToString);
+end;
+</code></pre><p>Curto, direto, limpo. Morreu dentro do loop, não incomoda ninguém.</p>
+<hr>
+<h2 id="exemplo-ruim-zona-total">Exemplo ruim (zona total)</h2>
+<pre tabindex="0"><code class="language-pascal" data-lang="pascal">procedure Calcula;
+begin
+  var Total := 0;
+
+  if Condicao then
+  begin
+    var Aux := SomaFuncao();
+    Total := Total + Aux;
+  end;
+
+  var Outro := OutraFuncao();
+  ShowMessage(Total.ToString + Outro.ToString);
+end;
+</code></pre><p>Onde foi declarada “Outro”? Qual o tipo dela? O que ela come?<br>
+Pra descobrir, só debugando.<br>
+E o coitado que abrir isso daqui seis meses vai querer pular da janela.</p>
+<hr>
+<h2 id="exemplo-da-desgraça-suprema-mesmo-nome-tipos-diferentes">Exemplo da desgraça suprema (mesmo nome, tipos diferentes)</h2>
+<pre tabindex="0"><code class="language-pascal" data-lang="pascal">procedure Teste;
+begin
+  var Valor: Integer := 10;
+  ShowMessage(&#39;Valor inteiro: &#39; + Valor.ToString);
+
+  begin
+    var Valor: String := &#39;dez&#39;;
+    ShowMessage(&#39;Valor string: &#39; + Valor);
+  end;
+
+  ShowMessage(&#39;Valor ainda é inteiro: &#39; + Valor.ToString);
+end;
+</code></pre><p>Olha que maravilha: duas variáveis com o mesmo nome, tipos diferentes, vivas em blocos diferentes.<br>
+Compila feliz, mas quem ler isso vai pensar que o compilador enlouqueceu.<br>
+Você acha que é um <code>Integer</code>, mas dentro de um bloco virou <code>String</code>.<br>
+Depois volta a ser <code>Integer</code>.<br>
+Isso não é clareza — isso é <strong>transtorno de identidade de variável</strong>.</p>
+<hr>
+<h2 id="conclusão">Conclusão</h2>
+
+
+
+
+
+
+
+<div class="bruto-bronca">
+  <strong>Coice do Bruto:</strong> <p>Variáveis inline é igual makita na mão de criança: pode até funcionar, mas você sabe que vai dar merda e alguem vai sair chorando (e quem sabe com um dedo a menos).<br>
+Use no <code>for</code>, use em bloco pequeno, mas <strong>não espalha <code>var</code> pelo código que nem confete no carnaval</strong>.</p>
+<p>O padrão do Delphi é simples, bonito e testado há décadas:<br>
+<strong><code>var</code> tudo antes do <code>begin</code>.</strong><br>
+Foge disso e o código vira um bingo de escopo.</p>
+<p>E se eu abrir seu código e encontrar variável inline espalhada, já aviso:<br>
+<strong>eu vou arrancar tudo e botar o <code>var</code> lá em cima, onde sempre deveria estar.</strong><br>
+Na marra, se for preciso.</p>
+
+</div>
+
+
+    </div>
+  </article>
+
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">delphi.dev.br</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

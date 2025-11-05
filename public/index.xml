@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.152.0</generator>
     <language>pt-br</language>
-    <lastBuildDate>Fri, 31 Oct 2025 22:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Variáveis inline – paraíso ou zona?</title>
+      <link>http://localhost:1313/posts/variaveis-inline-no-delphi/</link>
+      <pubDate>Mon, 03 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/variaveis-inline-no-delphi/</guid>
+      <description>O Bruto do Delphi explica o que são as variáveis inline — e por que podem transformar seu código num inferno.</description>
+    </item>
     <item>
       <title>Pare de Usar With no Delphi</title>
       <link>http://localhost:1313/posts/pare-de-usar-with-no-delphi/</link>
