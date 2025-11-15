@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>FMX on delphi.dev.br</title>
+    <link>http://localhost:1313/tags/fmx/</link>
+    <description>Recent content in FMX on delphi.dev.br</description>
+    <image>
+      <title>delphi.dev.br</title>
+      <url>http://localhost:1313/images/cover-default.jpg</url>
+      <link>http://localhost:1313/images/cover-default.jpg</link>
+    </image>
+    <generator>Hugo -- 0.152.0</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Fri, 14 Nov 2025 22:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/fmx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rodando Delphi no Linux</title>
+      <link>http://localhost:1313/posts/wsl-delphi/</link>
+      <pubDate>Fri, 14 Nov 2025 22:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/wsl-delphi/</guid>
+      <description>Rodando Delphi no WSL2 — quando o Linux entra na sua máquina e o Windows só assiste.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Rodando Delphi no Linux | delphi.dev.br</title>
+<meta name="keywords" content="Delphi, Bruto do Delphi, WSL, Linux, FMX">
+<meta name="description" content="Rodando Delphi no WSL2 — quando o Linux entra na sua máquina e o Windows só assiste.">
+<meta name="author" content="Bruto do Delphi">
+<link rel="canonical" href="http://localhost:1313/posts/wsl-delphi/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/wsl-delphi/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="stylesheet" href="/css/bruto.min.c31868396e2d623ffe58c59818d9ef98280f2b5465275af35de1a562c8a6b4e9.css" integrity="sha256-wxhoOW4tYj/&#43;WMWYGNnvmCgPK1RlJ1rzXeGlYsimtOk=">
+
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="delphi.dev.br (Alt + H)">delphi.dev.br</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Início">
+                    <span>Início</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="Sobre">
+                    <span>Sobre</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/contact/" title="Contato">
+                    <span>Contato</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+  <article class="post">
+    <header class="post-header">
+      <h1>Rodando Delphi no Linux</h1>
+      
+    </header>
+
+  <p class="bruto-saudacao-post"><strong>&#x1F920; Tarde Brutaiada! Sejam bem vindos a mais um post do Bruto do Delphi!</strong></p>
+
+    <div class="post-content">
+      <h1 id="rodando-delphi-no-wsl2--quando-o-linux-entra-na-sua-máquina-e-o-windows-só-assiste">Rodando Delphi no WSL2 — quando o Linux entra na sua máquina e o Windows só assiste</h1>
+
+
+
+
+
+
+
+<div class="bruto-intro">
+  <span>Lá por 2025 eu resolvi encarar a ideia maluca de rodar <strong>Delphi no Linux sem sair do Windows</strong>.<br>É isso mesmo: um tal de <strong>WSL2</strong> — o “subsystem for linux” — que deixa o pinguim morar dentro do Windows e ainda comer na mesma mesa. <br><br>E pra minha surpresa, funciona. Então se prepara, porque eu vou te mostrar como eu fiz isso funcionar <strong>com o Ubuntu 22.04</strong> (era o estável quando escrevi este post). <br>Se quando você estiver lendo isso o número for outro (24.04, 26.04…), <strong>troca o nome na instalação e segue o baile</strong>.</span>
+</div>
+
+<hr>
+<h2 id="1-o-que-é-o-tal-do-wsl">1. O que é o tal do WSL</h2>
+<p>O <strong>WSL</strong> é basicamente um Linux domesticado, rodando dentro do Windows. Não é VM, não é Docker — é rápido e prático.
+Você roda um comando e pronto: tem um Ubuntu te olhando feio.</p>
+<hr>
+<h2 id="2-instalando-o-ubuntu-ou-o-que-tiver-no-lugar-dele">2. Instalando o Ubuntu (ou o que tiver no lugar dele)</h2>
+<p>Abra o <strong>Prompt de Comando</strong> como administrador e rode:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wsl --list --online
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Vai aparecer uma lista de distribuições. Na época eu usei <strong>Ubuntu 22.04</strong>, mas se já saiu 24.04, use ele. O nome muda, o processo é o mesmo.</p>
+<p>Para instalar:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wsl --install Ubuntu-22.04
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>O Windows baixa, instala e pede <strong>usuário e senha</strong>. Escolha algo que você lembre, porque o Linux vai cobrar.</p>
+<hr>
+<h2 id="3-atualizando-o-sistema-e-instalando-o-que-presta">3. Atualizando o sistema e instalando o que presta</h2>
+<p>No Ubuntu, rode o básico para atualizar os pacotes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update <span class="o">&amp;&amp;</span> sudo apt upgrade <span class="o">&amp;&amp;</span> sudo apt dist-upgrade
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Depois instale as ferramentas de desenvolvimento que o Delphi precisa:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install joe wget p7zip-full curl openssh-server build-essential zlib1g-dev libcurl4-gnutls-dev libncurses5 zlib1g-dev libgtk-3-dev
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="4-instalando-o-paserver-no-wsl">4. Instalando o PAServer no WSL</h2>
+<p>Copie o <strong>PAServer</strong> do Windows para dentro do WSL. No Delphi 12, o arquivo fica em algo como:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">C:<span class="se">\\</span>Program Files <span class="o">(</span>x86<span class="o">)</span><span class="se">\\</span>Embarcadero<span class="se">\\</span>Studio<span class="se">\\</span>23.0<span class="se">\\</span>PAServer<span class="se">\\</span>LinuxPAServer23.0.tar.gz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>No Ubuntu, execute:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp /mnt/c/Program<span class="se">\ </span>Files<span class="se">\ \(</span>x86<span class="se">\)</span>/Embarcadero/Studio/23.0/PAServer/LinuxPAServer23.0.tar.gz ~/
+</span></span><span class="line"><span class="cl">tar -xvf ./LinuxPAServer23.0.tar.gz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Inicie o servidor:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./PAServer-23.0/paserver
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ele pedirá uma senha — <strong>defina uma senha de verdade</strong>. Aqui não tem ‘deixar tudo aberto’ (laele). Segurança é coisa séria.</p>
+<p>Digite <code>i</code> e pressione Enter para ver o <strong>IP</strong> do PAServer. Anote.</p>
+<hr>
+<h2 id="5-configurando-o-delphi-para-conversar-com-o-wsl">5. Configurando o Delphi para conversar com o WSL</h2>
+<p>No Delphi do Windows, instale o <strong>FMXLinux</strong> via GetIt (se necessário).
+<img alt="GetIt Package Manager" loading="lazy" src="/posts/wsl-delphi/img1.png"></p>
+<p>Depois vá em:</p>
+<pre tabindex="0"><code>Tools &gt; Options &gt; Deployment &gt; Connection Profile Manager
+</code></pre><p><img alt="Connection Profile Manager com botão Add" loading="lazy" src="/posts/wsl-delphi/img2.png"></p>
+<p>Clique em <strong>Add</strong> e crie um perfil para <strong>Linux 64-bit</strong>.
+<img alt="Terminal do Ubuntu rodando sudo apt update" loading="lazy" src="/posts/wsl-delphi/img3.png"></p>
+<p>Informe o IP do PAServer, usuário e senha definidos no Ubuntu, e <strong>Test Connection</strong>.
+<img alt="Remote Machine Information" loading="lazy" src="/posts/wsl-delphi/img4.png">
+<img alt="Teste de conexão bem-sucedido" loading="lazy" src="/posts/wsl-delphi/img5.png"></p>
+<hr>
+<h2 id="6-adicionando-o-sdk">6. Adicionando o SDK</h2>
+<p>Ainda no Delphi:</p>
+<pre tabindex="0"><code>Tools &gt; Options &gt; Deployment &gt; SDK Manager
+</code></pre><h2 id="updating-local-file-cache"><img alt="SDK Manager adicionando Linux 64-bit" loading="lazy" src="/posts/wsl-delphi/img6.png">
+Clique em <strong>Add</strong>, escolha <strong>Linux 64-bit</strong> e selecione o perfil criado.
+<img alt="Add a new SDK" loading="lazy" src="/posts/wsl-delphi/img7.png">
+O Delphi vai copiar um monte de arquivo para o WSL. Demora — quando o botão <strong>Cancel</strong> virar <strong>Close</strong>, terminou.
+<img alt="Updating Local File Cache" loading="lazy" src="/posts/wsl-delphi/img8.png"></h2>
+<h2 id="7-compilando-direto-para-linux">7. Compilando direto para Linux</h2>
+<p>Crie um projeto <strong>Multi-Device Application</strong> e, no <strong>Project Manager</strong>, selecione <strong>Linux 64-bit</strong>. Se não aparecer, adicione em <strong>Target Platforms</strong>.</p>
+<p><img alt="Multi Device Application" loading="lazy" src="/posts/wsl-delphi/img9.png">
+<img alt="Project Manager com Linux selecionado" loading="lazy" src="/posts/wsl-delphi/img10.png">
+<img alt="Linux 64" loading="lazy" src="/posts/wsl-delphi/img11.png"></p>
+<p>Pressione <strong>F9</strong>. Se tudo estiver certo, o app sobe <strong>dentro do WSL</strong>.</p>
+<p><img alt="Formulário em branco rodando no Ubuntu pelo WSL" loading="lazy" src="/posts/wsl-delphi/img12.png"></p>
+<hr>
+<h2 id="8-conclusão">8. Conclusão</h2>
+
+
+
+
+
+
+
+<div class="bruto-bronca">
+  <strong>Coice do Bruto:</strong> <p>Pronto. Delphi no Windows, compilando para Linux no WSL.<br>
+É bonito? Não. É prático? Depende. É curioso? Bastante.</p>
+<p>Se der erro: confira IP, PAServer, SDK e firewall. Persistindo, reinicie — às vezes o Windows só quer atenção.</p>
+<blockquote>
+<p>“Se tá rodando, não mexe. Se parou, o Windows estragou.” — <strong>Bruto do Delphi</strong></p>
+</blockquote>
+
+</div>
+
+
+    </div>
+  </article>
+
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">delphi.dev.br</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
