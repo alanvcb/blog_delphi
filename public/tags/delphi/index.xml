@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.152.0</generator>
     <language>pt-br</language>
-    <lastBuildDate>Mon, 03 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Nov 2025 22:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/delphi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rodando Delphi no Linux</title>
+      <link>http://localhost:1313/posts/wsl-delphi/</link>
+      <pubDate>Fri, 14 Nov 2025 22:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/wsl-delphi/</guid>
+      <description>Rodando Delphi no WSL2 — quando o Linux entra na sua máquina e o Windows só assiste.</description>
+    </item>
     <item>
       <title>Variáveis inline – paraíso ou zona?</title>
       <link>http://localhost:1313/posts/variaveis-inline-no-delphi/</link>

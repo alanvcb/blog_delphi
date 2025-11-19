@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.152.0</generator>
     <language>pt-br</language>
-    <lastBuildDate>Fri, 31 Oct 2025 22:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Nov 2025 22:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/bruto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rodando Delphi no Linux</title>
+      <link>http://localhost:1313/posts/wsl-delphi/</link>
+      <pubDate>Fri, 14 Nov 2025 22:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/wsl-delphi/</guid>
+      <description>Rodando Delphi no WSL2 — quando o Linux entra na sua máquina e o Windows só assiste.</description>
+    </item>
     <item>
       <title>Pare de Usar With no Delphi</title>
       <link>http://localhost:1313/posts/pare-de-usar-with-no-delphi/</link>

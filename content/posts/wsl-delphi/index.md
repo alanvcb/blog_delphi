@@ -130,3 +130,5 @@ Se der erro: confira IP, PAServer, SDK e firewall. Persistindo, reinicie — às
 
 > “Se tá rodando, não mexe. Se parou, o Windows estragou.” — **Bruto do Delphi**
 {{< /bruto/bronca >}}
+
+{{< gdk-credit >}}
