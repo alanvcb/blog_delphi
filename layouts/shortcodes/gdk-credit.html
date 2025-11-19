@@ -1,29 +1,59 @@
-<div style="
-  margin-top:2rem;
-  padding:1rem;
-  border-left:4px solid #ccc;
-  background:#f8f8f8;
-  display:flex;
-  align-items:center;
-  gap:1rem;
-">
+<style>
+  .gdk-credit-box {
+    margin-top: 2rem;
+    padding: 1.2rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #f2f2f2;
+    border: 1px solid #d0d0d0;
+  }
 
-  <!-- Logo -->
-  <div style="flex:0 0 20%; max-width:80px;">
+  /* DARK MODE DO PAPERMOD */
+  html[data-theme="dark"] .gdk-credit-box {
+    background: #2b2b2b !important;
+    border: 1px solid #555 !important;
+  }
+
+  .gdk-credit-text {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: inherit;
+  }
+
+  .gdk-credit-logo {
+    flex: 0 0 60px;
+  }
+
+  .gdk-credit-logo img {
+    width: 60px;
+    height: auto;
+    display: block;
+  }
+
+  .gdk-credit-text a {
+    color: inherit !important;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+</style>
+
+<div class="gdk-credit-box">
+
+  <div class="gdk-credit-logo">
     <a href="https://gdksoftware.com/" target="_blank" rel="noopener">
-      <img src="/images/gdk-logo.png" alt="GDK Logo" style="width:100%; height:auto;">
+      <img src="/images/gdk-logo.png" alt="GDK Logo">
     </a>
   </div>
 
-  <!-- Texto -->
-  <div style="flex:1; font-size:0.95rem; line-height:1.45;">
+  <div class="gdk-credit-text">
     <strong>Crédito:</strong> Este artigo foi escrito durante o 
     <em>Vivid Day</em> da 
-    <a href="https://gdksoftware.com/" target="_blank" rel="noopener" style="font-weight:bold; text-decoration:none; color:inherit;">
-      GDK
-    </a>
+    <a href="https://gdksoftware.com/" target="_blank" rel="noopener">GDK</a>
     — um dia em que os desenvolvedores recebem tempo dedicado
-    para estudar, pesquisar e produzir conteúdo técnico.  
+    para estudar, pesquisar e produzir conteúdo técnico.
     Agradeço à empresa por apoiar iniciativas que fortalecem a comunidade técnica.
   </div>
 
