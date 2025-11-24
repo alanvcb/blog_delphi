@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on delphi.dev.br</title>
+    <link>http://localhost:1313/pt/tags/</link>
+    <description>Recent content in Tags on delphi.dev.br</description>
+    <image>
+      <title>delphi.dev.br</title>
+      <url>http://localhost:1313/images/cover-default.jpg</url>
+      <link>http://localhost:1313/images/cover-default.jpg</link>
+    </image>
+    <generator>Hugo -- 0.152.0</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Fri, 14 Nov 2025 22:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/pt/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bruto Do Delphi</title>
+      <link>http://localhost:1313/pt/tags/bruto-do-delphi/</link>
+      <pubDate>Fri, 14 Nov 2025 22:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/tags/bruto-do-delphi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Delphi</title>
+      <link>http://localhost:1313/pt/tags/delphi/</link>
+      <pubDate>Fri, 14 Nov 2025 22:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/tags/delphi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>FMX</title>
+      <link>http://localhost:1313/pt/tags/fmx/</link>
+      <pubDate>Fri, 14 Nov 2025 22:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/tags/fmx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>http://localhost:1313/pt/tags/linux/</link>
+      <pubDate>Fri, 14 Nov 2025 22:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>WSL</title>
+      <link>http://localhost:1313/pt/tags/wsl/</link>
+      <pubDate>Fri, 14 Nov 2025 22:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/tags/wsl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Variáveis Inline</title>
+      <link>http://localhost:1313/pt/tags/vari%C3%A1veis-inline/</link>
+      <pubDate>Mon, 03 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/tags/vari%C3%A1veis-inline/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Clean-Code</title>
+      <link>http://localhost:1313/pt/tags/clean-code/</link>
+      <pubDate>Fri, 31 Oct 2025 22:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/tags/clean-code/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__content">
+      {{ with .Site.Params.links }}
+        <ul class="footer-links">
+          {{ range . }}
+            <li><a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a></li>
+          {{ end }}
+        </ul>
+      {{ end }}
+
+      <p class="copyright">
+        © {{ now.Format "2006" }} {{ .Site.Title }} · Powered by
+        <a href="https://gohugo.io/">Hugo</a> &amp;
+        <a href="https://adityatelange.github.io/hugo-PaperMod/">PaperMod</a>
+      </p>
+    </div>
+
+    <div class="footer__social">
+      {{ partial "social_icons.html" (dict "social" .Site.Params.social "align" "center") }}
+    </div>
+  </div>
+</footer>

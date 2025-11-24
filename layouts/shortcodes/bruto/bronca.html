@@ -8,5 +8,9 @@
 {{ end }}
 
 <div class="bruto-bronca">
-  <strong>Coice do Bruto:</strong> {{ $text | markdownify }}
+  {{ if eq .Site.Language.Lang "pt" }}
+    <strong>Coice do Bruto:</strong> {{ $text | markdownify }}
+  {{ else }}
+    <strong>Roughneck’s Slap of Wisdom:</strong> {{ $text | markdownify }}
+  {{ end }}
 </div>

@@ -1,10 +1,123 @@
 baseURL = "https://delphi.dev.br/"
-languageCode = "pt-br"
+languageCode = "pt-BR"
 title = "delphi.dev.br"
 theme = "PaperMod"
 
+defaultContentLanguage = "pt"
+defaultContentLanguageInSubdir = true
+enableRobotsTXT = true
+
+###############################################
+#                 LANGUAGES                  #
+###############################################
+
+[languages]
+
+  ############################################
+  #                PT-BR                     #
+  ############################################
+  [languages.pt]
+    languageName = "Português"
+    weight = 1
+    contentDir = "content/pt"
+    title = "delphi.dev.br"
+    languageCode = "pt-BR"
+
+  [languages.pt.params.profileMode]
+    enabled = true
+    title = "delphi.dev.br"
+    subtitle = """<strong>Bruto do Delphi</strong> — rústico, sem firula, 20+ anos de Delphi.
+      <div class='bruto-saudacao-home'><strong>🤠 Tarde Brutaiada</strong></div>"""
+    imageUrl = "images/bruto-avatar.png"
+    imageTitle = "Bruto do Delphi"
+    imageWidth = 180
+    imageHeight = 180	
+
+  [languages.pt.menu]
+
+    [[languages.pt.menu.main]]
+      name = "Início"
+      url  = "/"
+      weight = 1
+
+    [[languages.pt.menu.main]]
+      name = "Posts"
+      url  = "/posts/"
+      weight = 2
+
+    [[languages.pt.menu.main]]
+      name = "Sobre"
+      url  = "/about/"
+      weight = 3
+
+    [[languages.pt.menu.main]]
+      name = "Contato"
+      url  = "/contact/"
+      weight = 4
+	  
+   # [[languages.pt.menu.main]]
+   #   name = "Buscar"
+   #   url  = "/search/"
+   #   weight = 5
+	  
+
+
+  ############################################
+  #                EN-US                     #
+  ############################################
+  [languages.en]
+    languageName = "English"
+    weight = 2
+    contentDir = "content/en"
+    title = "delphi.dev.br (EN)"
+    languageCode = "en-US"
+
+  [languages.en.params.profileMode]
+    enabled = true
+    title = "delphi.dev.br"
+    subtitle = """<strong>Delphi Roughneck</strong> — no-nonsense, hands-on, 20+ years wrestling with Delphi.
+    <div class='bruto-saudacao-home'><strong>🤠 Afternoon, y’all rough bunch!</strong></div>"""
+    imageUrl = "images/bruto-avatar.png"
+    imageTitle = "Delphi Roughneck"
+    imageWidth = 180
+    imageHeight = 180	
+
+  [languages.en.menu]
+
+    [[languages.en.menu.main]]
+      name = "Home"
+      url  = "/"
+      weight = 1
+
+    [[languages.en.menu.main]]
+      name = "Posts"
+      url  = "/posts/"
+      weight = 2
+
+    [[languages.en.menu.main]]
+      name = "About"
+      url  = "/about/"
+      weight = 3
+
+    [[languages.en.menu.main]]
+      name = "Contact"
+      url  = "/contact/"
+      weight = 4
+	  
+   # [[languages.en.menu.main]]
+   #   name = "Search"
+   #   url  = "/search/"
+   #   weight = 5
+	  
+
+
+###############################################
+#               GLOBAL SETTINGS               #
+###############################################
+
 [pagination]
   pagerSize = 7
+
 enableRobotsTXT = true
 canonifyURLs = true
 
@@ -13,29 +126,23 @@ canonifyURLs = true
   tag      = "tags"
   series   = "series"
 
+
+###############################################
+#                 PARAMETERS                  #
+###############################################
+
 [params]
   defaultTheme = "auto"
   ShowReadingTime = true
   ShowCodeCopyButtons = true
   ShowShareButtons = true
   ShowBreadCrumbs = true
+  ShowLanguageSwitcher = true
   images = ["images/cover-default.jpg"]  
+  search = true
+  familyMode = false   # controla censura geral
 
-  # Subtítulo e persona
- [params.profileMode]
-  enabled = true
-  title = "delphi.dev.br"
-  subtitle = """<strong>Bruto do Delphi</strong> — rústico, sem firula, 20+ anos de Delphi.
-    <div class='bruto-saudacao-home'><strong>🤠 Tarde Brutaiada</strong></div>"""
-  imageUrl = "images/bruto-avatar.png"
-  imageTitle = "Bruto do Delphi"
-  imageWidth = 180
-  imageHeight = 180
-
-  # “Modo família”: se true, censura palavrões em shortcodes
-  familyMode = false
-
-  # Ícones sociais no topo/rodapé
+  # Ícones sociais
   [[params.socialIcons]]
     name = "github"
     url  = "https://github.com/alanvcb"
@@ -49,38 +156,43 @@ canonifyURLs = true
     name = "rss"
     url  = "/index.xml"
 
-# 🧭 Menu principal
-[menu]
-  [[menu.main]]
-    name = "Início"
-    url = "/"
-    weight = 1
-  [[menu.main]]
-    name = "Posts"
-    url = "/posts/"
-    weight = 2
-  [[menu.main]]
-    name = "Sobre"
-    url = "/about/"
-    weight = 3
-  [[menu.main]]
-    name = "Contato"
-    url = "/contact/"
-    weight = 4
 
-# 💡 Syntax highlight bonito e com números de linha
+###############################################
+#              MARKUP / SYNTAX                #
+###############################################
+
 [markup]
   [markup.highlight]
-    noClasses = false      # PaperMod injeta o CSS quando isso é false
+    noClasses = false
     lineNos = true
     lineNumbersInTable = true
+
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+
+###############################################
+#          BRUTO MODE & ASSETS                #
+###############################################
 
 [params.bruto]
   familyMode = false
 
 [params.assets]
   css = ["css/bruto.css"]
- 
+  js  = ["js/lang-redirect.js"]
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[caches]
+  [caches.images]
+    dir = ":resourceDir/_gen"
+    maxAge = "720h"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]

@@ -1,0 +1,35 @@
+{{ if eq .Site.Language.Lang "pt" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Bruto do Delphi",
+  "alternateName": "Delphi Roughneck",
+  "url": "{{ .Site.BaseURL }}",
+  "jobTitle": "Desenvolvedor Delphi raiz",
+  "description": "Conteúdo técnico de Delphi com humor bruto, direto e sem frescura.",
+  "sameAs": [
+    "https://github.com/alanvcb",
+    "https://youtube.com/brutododelphi",
+    "https://www.linkedin.com/in/alanvcb"
+  ]
+}
+</script>
+{{ else }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Delphi Roughneck",
+  "alternateName": "Bruto do Delphi",
+  "url": "{{ .Site.BaseURL }}en/",
+  "jobTitle": "Hands-on Delphi developer",
+  "description": "Technical Delphi content delivered with rough humor and shop-floor attitude.",
+  "sameAs": [
+    "https://github.com/alanvcb",
+    "https://youtube.com/brutododelphi",
+    "https://www.linkedin.com/in/alanvcb"
+  ]
+}
+</script>
+{{ end }}

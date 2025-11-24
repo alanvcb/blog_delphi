@@ -1,1 +1,10 @@
-<p class="bruto-saudacao-post"><strong>&#x1F920; Tarde Brutaiada! Sejam bem vindos a mais um post do Bruto do Delphi!</strong></p>
+{{ if eq .Page.Language.Lang "pt" }}
+<p class="bruto-saudacao-post">
+  <strong>🤠 Tarde Brutaiada! Sejam bem-vindos a mais um post do Bruto do Delphi!</strong>
+</p>
+
+{{ else if eq .Page.Language.Lang "en" }}
+<p class="bruto-saudacao-post">
+  <strong>🤠 Afternoon, y’all rough bunch! Welcome to another Delphi Roughneck post!</strong>
+</p>
+{{ end }}

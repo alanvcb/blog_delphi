@@ -1,0 +1,16 @@
+{{ $currentLang := .Site.Language.Lang }}
+{{ $key := .TranslationKey }}
+
+{{ if $key }}
+  <div class="post-lang-switch">
+    {{ if eq $currentLang "pt" }}
+      {{ with site.GetPage (printf "/en/%s" .File.TranslationBaseName) }}
+        <a href="{{ .RelPermalink }}">Read this post in English 🇺🇸</a>
+      {{ end }}
+    {{ else }}
+      {{ with site.GetPage (printf "/pt/%s" .File.TranslationBaseName) }}
+        <a href="{{ .RelPermalink }}">Ler este post em Português 🇧🇷</a>
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}

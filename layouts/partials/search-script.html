@@ -1,0 +1,37 @@
+<script src="/js/fuse.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const lang = document.documentElement.getAttribute("data-theme-lang") 
+              || "{{ .Site.Language.Lang }}";
+
+    const indexUrl = `/${lang}/index.json`;
+
+    const res = await fetch(indexUrl);
+    const data = await res.json();
+
+    const options = {
+        keys: ["title", "summary", "content"],
+        threshold: 0.4,
+    };
+
+    const fuse = new Fuse(data, options);
+
+    const searchBox = document.getElementById("searchBox");
+    const resultsList = document.getElementById("results");
+
+    searchBox.addEventListener("input", () => {
+        const query = searchBox.value.trim();
+        const results = fuse.search(query);
+        resultsList.innerHTML = "";
+
+        results.slice(0, 20).forEach(r => {
+            const item = r.item;
+            const li = document.createElement("li");
+            li.innerHTML = `<a href="${item.permalink}">${item.title}</a>`;
+            resultsList.appendChild(li);
+        });
+    });
+});
+</script>

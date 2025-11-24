@@ -1,0 +1,16 @@
+<div class="language-switcher">
+  {{ range .Site.Languages }}
+    <a href="{{ .Lang | relLangURL }}" 
+       title="{{ .LanguageName }}" 
+       style="margin-right:10px;">
+       
+      {{ if eq .Lang "pt" }}
+        🇧🇷
+      {{ else if eq .Lang "en" }}
+        🇺🇸
+      {{ else }}
+        {{ .Lang | upper }}
+      {{ end }}
+    </a>
+  {{ end }}
+</div>

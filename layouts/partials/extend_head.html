@@ -1,2 +1,98 @@
-{{- $bruto := resources.Get "css/bruto.css" | minify | fingerprint -}}
-<link rel="stylesheet" href="{{ $bruto.RelPermalink }}" integrity="{{ $bruto.Data.Integrity }}">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+{{/* ------------------------------------------------------------
+   CSS DO BRUTO (AGORA DO JEITO CERTO)
+------------------------------------------------------------ */}}
+<link rel="preload" href="/css/bruto.css" as="style">
+<link rel="stylesheet" href="/css/bruto.css">
+
+{{/* Bandeirinhas */}}
+<link rel="preload" href="/flags/br.svg" as="image">
+<link rel="preload" href="/flags/us.svg" as="image">
+
+{{/* ============================================================
+       SEO COMPLETO PARA DELPHI.DEV.BR
+       - JSON-LD: WebSite, WebPage, Organization, Person, Breadcrumb, Article
+       - Canonical
+       - Hreflang
+       - OG e Twitter Cards
+=============================================================== */}}
+
+{{- $ctx := . -}}
+
+{{/* ------------------------------------------------------------
+   CANONICAL URL
+------------------------------------------------------------ */}}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{/* ------------------------------------------------------------
+   HREFLANG (PT ↔ EN)
+------------------------------------------------------------ */}}
+{{ range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{ end }}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+
+{{/* ------------------------------------------------------------
+   OPEN GRAPH (OG)
+------------------------------------------------------------ */}}
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ .Description | default .Summary }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="delphi.dev.br">
+{{ if .Params.images }}
+<meta property="og:image" content="{{ (index .Params.images 0) | absURL }}">
+{{ else }}
+<meta property="og:image" content="{{ "/images/cover-default.jpg" | absURL }}">
+{{ end }}
+
+{{/* ------------------------------------------------------------
+   TWITTER CARDS
+------------------------------------------------------------ */}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ .Description | default .Summary }}">
+{{ if .Params.images }}
+<meta name="twitter:image" content="{{ (index .Params.images 0) | absURL }}">
+{{ else }}
+<meta name="twitter:image" content="{{ "/images/cover-default.jpg" | absURL }}">
+{{ end }}
+
+{{ partial "seo/author.html" . }}
+{{ partial "seo/article.html" . }}
+
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "delphi.dev.br",
+  "url": "{{ .Site.BaseURL }}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ .Site.BaseURL }}?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{{ end }}
+
+{{ if and .IsPage (eq .Section "posts") }}
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+   { "@type": "ListItem", "position": 1, "name": "Posts", "item": "{{ "/posts/" | absLangURL }}" },
+   { "@type": "ListItem", "position": 2, "name": "{{ .Title }}", "item": "{{ .Permalink }}" }
+ ]
+}
+</script>
+{{ end }}

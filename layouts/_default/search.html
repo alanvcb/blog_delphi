@@ -1,0 +1,10 @@
+{{ define "main" }}
+
+<div class="search-page">
+    <h1>{{ i18n "search" | default "Buscar" }}</h1>
+    <input type="text" id="searchBox" placeholder="Digite para buscar..." autofocus>
+
+    <ul id="results"></ul>
+</div>
+
+{{ end }}

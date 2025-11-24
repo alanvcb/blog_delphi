@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on delphi.dev.br (EN)</title>
+    <link>http://localhost:1313/en/posts/</link>
+    <description>Recent content in Posts on delphi.dev.br (EN)</description>
+    <image>
+      <title>delphi.dev.br (EN)</title>
+      <url>http://localhost:1313/images/cover-default.jpg</url>
+      <link>http://localhost:1313/images/cover-default.jpg</link>
+    </image>
+    <generator>Hugo -- 0.152.0</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 14 Nov 2025 22:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Running Delphi on WSL2 — when Linux moves into your machine and Windows just watches</title>
+      <link>http://localhost:1313/en/posts/wsl-delphi/</link>
+      <pubDate>Fri, 14 Nov 2025 22:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/posts/wsl-delphi/</guid>
+      <description>Running Delphi on WSL2 — when Linux enters your machine and Windows just stands there witnessing the chaos.</description>
+    </item>
+    <item>
+      <title>Inline Variables – paradise or pure chaos?</title>
+      <link>http://localhost:1313/en/posts/inline-variables-delphi/</link>
+      <pubDate>Mon, 03 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/posts/inline-variables-delphi/</guid>
+      <description>The Delphi Roughneck explains what inline variables really are — and why they can turn your code into a full-blown disaster.</description>
+    </item>
+    <item>
+      <title>Stop Using with in Delphi</title>
+      <link>http://localhost:1313/en/posts/stop-using-with-in-delphi/</link>
+      <pubDate>Fri, 31 Oct 2025 22:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/posts/stop-using-with-in-delphi/</guid>
+      <description>A Roughneck manifesto: why with is the devil dressed as a shortcut.</description>
+    </item>
+  </channel>
+</rss>

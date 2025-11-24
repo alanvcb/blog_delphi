@@ -49,12 +49,19 @@
   </div>
 
   <div class="gdk-credit-text">
-    <strong>Crédito:</strong> Este artigo foi escrito durante o 
-    <em>Vivid Day</em> da 
-    <a href="https://gdksoftware.com/" target="_blank" rel="noopener">GDK</a>
-    — um dia em que os desenvolvedores recebem tempo dedicado
-    para estudar, pesquisar e produzir conteúdo técnico.
-    Agradeço à empresa por apoiar iniciativas que fortalecem a comunidade técnica.
+    {{ if eq .Site.Language.Lang "pt" }}
+      <strong>Crédito:</strong> Este artigo foi escrito durante o 
+      <em>Vivid Day</em> da 
+      <a href="https://gdksoftware.com/" target="_blank" rel="noopener">GDK</a>,
+      um dia em que os desenvolvedores recebem tempo dedicado para estudar, pesquisar
+      e produzir conteúdo técnico. Agradeço à empresa por apoiar iniciativas que fortalecem
+      a comunidade técnica.
+    {{ else }}
+      <strong>Credit:</strong> This article was written during GDK’s
+      <em>Vivid Day</em>, a day where developers are given dedicated time to study,
+      research, and produce technical content. Many thanks to GDK for supporting
+      initiatives that strengthen the engineering community.
+    {{ end }}
   </div>
 
 </div>

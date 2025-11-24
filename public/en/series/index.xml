@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Series on delphi.dev.br (EN)</title>
+    <link>http://localhost:1313/en/series/</link>
+    <description>Recent content in Series on delphi.dev.br (EN)</description>
+    <image>
+      <title>delphi.dev.br (EN)</title>
+      <url>http://localhost:1313/images/cover-default.jpg</url>
+      <link>http://localhost:1313/images/cover-default.jpg</link>
+    </image>
+    <generator>Hugo -- 0.152.0</generator>
+    <language>en-US</language>
+    <atom:link href="http://localhost:1313/en/series/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

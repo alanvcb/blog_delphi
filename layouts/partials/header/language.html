@@ -1,0 +1,11 @@
+<div class="language-switcher">
+  {{ range $.Site.Languages }}
+    <a href="{{ .Lang | relLangURL }}" title="{{ .LanguageName }}" class="lang-flag">
+      {{ if eq .Lang "pt" }}
+        <img src="/flags/br.svg" alt="Português">
+      {{ else if eq .Lang "en" }}
+        <img src="/flags/us.svg" alt="English">
+      {{ end }}
+    </a>
+  {{ end }}
+</div>

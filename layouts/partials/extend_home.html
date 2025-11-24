@@ -1,3 +1,10 @@
+{{ if eq .Site.Language.Lang "pt" }}
 <div class="bruto-saudacao-home">
   <strong>🤠 Tarde Brutaiada 👊</strong>
 </div>
+
+{{ else if eq .Site.Language.Lang "en" }}
+<div class="bruto-saudacao-home">
+  <strong>🤠 Afternoon, y’all rough bunch 👊</strong>
+</div>
+{{ end }}

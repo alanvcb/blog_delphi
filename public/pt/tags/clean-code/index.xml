@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Clean-Code on delphi.dev.br</title>
+    <link>http://localhost:1313/pt/tags/clean-code/</link>
+    <description>Recent content in Clean-Code on delphi.dev.br</description>
+    <image>
+      <title>delphi.dev.br</title>
+      <url>http://localhost:1313/images/cover-default.jpg</url>
+      <link>http://localhost:1313/images/cover-default.jpg</link>
+    </image>
+    <generator>Hugo -- 0.152.0</generator>
+    <language>pt-BR</language>
+    <lastBuildDate>Fri, 31 Oct 2025 22:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/pt/tags/clean-code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pare de Usar With no Delphi</title>
+      <link>http://localhost:1313/pt/posts/pare-de-usar-with-no-delphi/</link>
+      <pubDate>Fri, 31 Oct 2025 22:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pt/posts/pare-de-usar-with-no-delphi/</guid>
+      <description>Um manifesto do Bruto do Delphi: por que o &lt;code&gt;with&lt;/code&gt; é o capeta disfarçado de atalho.</description>
+    </item>
+  </channel>
+</rss>

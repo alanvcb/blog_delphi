@@ -1,0 +1,42 @@
+{{ if and .IsPage (eq .Section "posts") }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+
+  "headline": {{ .Title | jsonify }},
+  "description": {{ .Description | default .Summary | jsonify }},
+  "inLanguage": "{{ .Site.Language.Lang }}",
+  "url": "{{ .Permalink }}",
+
+  "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+
+  "author": {
+    "@type": "Person",
+    "name": "{{ if eq .Site.Language.Lang "pt" }}Bruto do Delphi{{ else }}Delphi Roughneck{{ end }}"
+  },
+
+  "publisher": {
+    "@type": "Organization",
+    "name": "delphi.dev.br",
+    "url": "{{ .Site.BaseURL }}"
+  },
+
+  "image": [
+    {{- if .Params.images -}}
+      "{{ (index .Params.images 0) | absURL }}"
+    {{- else -}}
+      "{{ "/images/cover-default.jpg" | absURL }}"
+    {{- end -}}
+  ],
+
+  "alternateName": "{{ .TranslationKey }}",
+  "alternateUrl": [
+    {{- range .Translations -}}
+      "{{ .Permalink }}"
+    {{- end -}}
+  ]
+}
+</script>
+{{ end }}
