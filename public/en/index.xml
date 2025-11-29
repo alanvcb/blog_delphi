@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.152.0</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 14 Nov 2025 22:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Nov 2025 23:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JSON in Delphi — understanding it before blindly copying from Stack Overflow</title>
+      <link>http://localhost:1313/posts/en/json-no-delphi-teoria/</link>
+      <pubDate>Thu, 27 Nov 2025 23:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/en/json-no-delphi-teoria/</guid>
+      <description>Before smashing the keyboard, the Roughneck explains what JSON really is — without fluff and without Stack Overflow dependency.</description>
+    </item>
     <item>
       <title>Running Delphi on WSL2 — when Linux moves into your machine and Windows just watches</title>
       <link>http://localhost:1313/en/posts/wsl-delphi/</link>

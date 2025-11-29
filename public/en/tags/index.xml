@@ -11,20 +11,27 @@
     </image>
     <generator>Hugo -- 0.152.0</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 14 Nov 2025 22:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Nov 2025 23:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/en/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Delphi</title>
       <link>http://localhost:1313/en/tags/delphi/</link>
-      <pubDate>Fri, 14 Nov 2025 22:00:00 +0000</pubDate>
+      <pubDate>Thu, 27 Nov 2025 23:00:00 +0000</pubDate>
       <guid>http://localhost:1313/en/tags/delphi/</guid>
       <description></description>
     </item>
     <item>
       <title>Delphi Roughneck</title>
       <link>http://localhost:1313/en/tags/delphi-roughneck/</link>
-      <pubDate>Fri, 14 Nov 2025 22:00:00 +0000</pubDate>
+      <pubDate>Thu, 27 Nov 2025 23:00:00 +0000</pubDate>
       <guid>http://localhost:1313/en/tags/delphi-roughneck/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JSON</title>
+      <link>http://localhost:1313/en/tags/json/</link>
+      <pubDate>Thu, 27 Nov 2025 23:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/tags/json/</guid>
       <description></description>
     </item>
     <item>

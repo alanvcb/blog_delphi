@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/pt/categories/bruto/</loc>
-    <lastmod>2025-11-14T22:00:00+00:00</lastmod>
+    <lastmod>2025-11-27T23:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -16,10 +16,10 @@
                 />
   </url><url>
     <loc>http://localhost:1313/pt/tags/bruto-do-delphi/</loc>
-    <lastmod>2025-11-14T22:00:00+00:00</lastmod>
+    <lastmod>2025-11-27T23:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/pt/categories/</loc>
-    <lastmod>2025-11-14T22:00:00+00:00</lastmod>
+    <lastmod>2025-11-27T23:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -32,7 +32,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/pt/tags/delphi/</loc>
-    <lastmod>2025-11-14T22:00:00+00:00</lastmod>
+    <lastmod>2025-11-27T23:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -42,6 +42,71 @@
                 rel="alternate"
                 hreflang="pt-BR"
                 href="http://localhost:1313/pt/tags/delphi/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/pt/tags/json/</loc>
+    <lastmod>2025-11-27T23:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/en/tags/json/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-BR"
+                href="http://localhost:1313/pt/tags/json/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/posts/pt/json-no-delphi-teoria/</loc>
+    <lastmod>2025-11-27T23:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/posts/en/json-no-delphi-teoria/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-BR"
+                href="http://localhost:1313/posts/pt/json-no-delphi-teoria/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/pt/</loc>
+    <lastmod>2025-11-27T23:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-BR"
+                href="http://localhost:1313/pt/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/pt/posts/</loc>
+    <lastmod>2025-11-27T23:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-BR"
+                href="http://localhost:1313/pt/posts/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/pt/tags/</loc>
+    <lastmod>2025-11-27T23:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-BR"
+                href="http://localhost:1313/pt/tags/"
                 />
   </url><url>
     <loc>http://localhost:1313/pt/tags/fmx/</loc>
@@ -70,32 +135,6 @@
                 href="http://localhost:1313/pt/tags/linux/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt/</loc>
-    <lastmod>2025-11-14T22:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="http://localhost:1313/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-BR"
-                href="http://localhost:1313/pt/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/pt/posts/</loc>
-    <lastmod>2025-11-14T22:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="http://localhost:1313/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-BR"
-                href="http://localhost:1313/pt/posts/"
-                />
-  </url><url>
     <loc>http://localhost:1313/pt/posts/wsl-delphi/</loc>
     <lastmod>2025-11-14T22:00:00+00:00</lastmod>
     <xhtml:link
@@ -107,19 +146,6 @@
                 rel="alternate"
                 hreflang="pt-BR"
                 href="http://localhost:1313/pt/posts/wsl-delphi/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/pt/tags/</loc>
-    <lastmod>2025-11-14T22:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="http://localhost:1313/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-BR"
-                href="http://localhost:1313/pt/tags/"
                 />
   </url><url>
     <loc>http://localhost:1313/pt/tags/wsl/</loc>
